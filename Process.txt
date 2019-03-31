@@ -1,0 +1,18 @@
+First, we create a virtual environment and navigate to it and activate.
+    + 'python3 -m venv [virtualEnvironmentName]'
+    + 'cd [virtualEnvironmentName]/ && source bin/activate'
+Create a directory for the project and navigate to it.
+    + 'mkdir [nameOfProject] && cd $_'
+Then, we need to pull in dependences using the below. This will install the packages in the 'lib/python3.5/site-packages/' folder:
+    'pip install django djangorestframework'
+Finally, start a project
+    + 'django-admin startproject [projectName]'
+    + This creates a 'project' folder with a folder inside named the same, and consisting of a settings.py, __init__.py, urls.py, wsgi.py, and a 'manage.py' file outside.
+
+Python is consisted of modular, reuseable apps, and you can have multiple within one project.
+    + start the app within the project folder that you started earlier, alongside manage.py.
+    + 'django-admin startapp [projectName]'
+    + Make sure you go to the settings.py file and add the new project name to the INSTALLED_APPS array
+
+
+
