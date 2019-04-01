@@ -14,5 +14,27 @@ Python is consisted of modular, reuseable apps, and you can have multiple within
     + 'django-admin startapp [projectName]'
     + Make sure you go to the settings.py file and add the new project name to the INSTALLED_APPS array
 
+Models - objects representing table data where the fields are columns in the table.
+    + These classes can be created in the models.py file within the project we've created 'leads'.
+    + Use this as documentation: https://docs.djangoproject.com/en/2.0/ref/models/fields/
 
+Migrate the models by 'python manage.py makemigrations leads' then 'python manage.py migrate'
+    + Think of migrations as version control for your database schema.
+    + 'makemigrations' is responsible for packaging up your model changes into individual migration files - analogous to commits - and 'migrate' is responsible for applying those to your database.
+        - The migration files for each app live in a “migrations” directory inside of that app, and are designed to be committed to, and distributed as part of, its codebase. 
+    + Migrating adds a file to the 'migrations' folder in your project with the names and fields included.
+    + Django will make migrations for any change to your models or fields - even options that don’t affect the database - as the only way it can reconstruct a field correctly is to have all the changes in the history, and you might need those options in some data migrations later on (for example, if you’ve set custom validators).
 
+Testing
+    + Do NOT test a vanilla Django model or ORM
+    + Do test custom methods or views
+    + You can install a package called 'coverage' then run coverage run --source='.' manage.py test
+    + 'coverage html' generates an HTML file with results in the htmlcov folder, and 'coverage report' generates the report within the console.
+
+Serializing: act of transforming an object into another data format.
+    + We would need it when attempting to render a class as a JSON object in the browser
+    + But you can also serialize JSON to objects. This is useful to:
+        - display Django models in a browser by converting them to JSON
+        - make CRUD requests with a JSON payload to the API
+    + Serializers can be added to the project folder alongside tests.py
+    + You can make a properly named serializer for each model you have/need
